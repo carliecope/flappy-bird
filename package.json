@@ -1,0 +1,22 @@
+{
+  "name": "flappy-bird",
+  "version": "1.0.0",
+  "description": "Flappy Bird game",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carliecope/flappy-bird.git"
+  },
+  "author": "Carlie Copeland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carliecope/flappy-bird/issues"
+  },
+  "homepage": "https://github.com/carliecope/flappy-bird#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
