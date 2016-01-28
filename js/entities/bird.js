@@ -1,9 +1,11 @@
 var physicsComponent = require("../components/physics/physics");
 var graphicsComponent = require("../components/graphics/bird");
 var collisionComponent = require("../components/collision/circle");
+var flappyBird = require("../flappy_bird.js");
 //var settings = require("../settings");
 
 var Bird = function() {
+    this.isBird = true;
     var physics = new physicsComponent.PhysicsComponent(this);
     physics.position.y = 0.5;
     physics.acceleration.y = -2;
@@ -21,8 +23,11 @@ var Bird = function() {
 
 Bird.prototype.onCollision = function(entity) {
     console.log("Bird collided with entity:", entity);
-    this.components.physics.position.y = 0.5;
-    this.components.physics.velocity.y = 0;
+    if (entity.isBird = false) {
+        flappyBird.FlappyBird.entities = [];
+        flappyBird.FlappyBird.
+        flappyBird.FlappyBird.pipe = [];
+    }
 };
 
 exports.Bird = Bird;

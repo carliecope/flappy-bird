@@ -4,6 +4,7 @@ var collisionComponent = require("../components/collision/rect");
 //var settings = require("../settings");
 
 var Pipe = function(y_coord) {
+    this.isBird = false;
 	var physics = new physicsComponent.PhysicsComponent(this);
 	physics.position.x = 0.5;
 	physics.position.y = y_coord;
@@ -21,8 +22,7 @@ var Pipe = function(y_coord) {
 };
 
 Pipe.prototype.onCollision = function(entity) {
-    console.log("Pipe collided with entity:", entity);
-    console.log('collision on %', entity.components.physics.position);
+    //console.log("Pipe collided with entity:", entity);
 };
 
 exports.Pipe = Pipe;
