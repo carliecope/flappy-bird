@@ -6,11 +6,7 @@ PipeGraphicsComponent.prototype.draw = function(context) {
 	var position = this.entity.components.physics.position;	
 
     context.save();
-    context.translate(position.x, position.y);
-    context.beginPath();
-    context.rect(-0.05, -0.1, 0.1, 0.2);
-    context.fill();
-    context.closePath();
+    context.fillRect(position.x-0.05, position.y-0.1, 0.1, 0.2);
     context.restore();
 };
 

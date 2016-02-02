@@ -6,9 +6,9 @@ var BottomEdge = function() {
 	this.isBird = false;
 	var physics = new physicsComponent.PhysicsComponent(this);
 	physics.position.x = 0;
-	physics.position.y = 0;
+	physics.position.y = -0.05;
 
-	var collision = new collisionComponent.RectCollisionComponent(this, {x: 0.1, y: 1});
+	var collision = new collisionComponent.RectCollisionComponent(this, {x: 1, y: 0.1});
     collision.onCollision = this.onCollision.bind(this);
 
         this.components = {

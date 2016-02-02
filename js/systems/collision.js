@@ -1,3 +1,8 @@
+var bird = require('../entities/bird');
+var leftEdge = require('../entities/leftEdge');
+var topEdge = require('../entities/topEdge');
+var bottomEdge = require('../entities/bottomEdge');
+
 var CollisionSystem = function(entities) {
     this.entities = entities;
 };
@@ -23,13 +28,24 @@ CollisionSystem.prototype.tick = function() {
 
             if (entityA.components.collision.onCollision) {
                 entityA.components.collision.onCollision(entityB);
+                if (entityB.isBird || entityA.isBird) {
+                    this.reset();
+                }
             }
 
             if (entityB.components.collision.onCollision) {
                 entityB.components.collision.onCollision(entityA);
+                if (entityB.isBird || entityA.isBird) {
+                    this.reset();
+                }
             }
         }
     }
+};
+
+CollisionSystem.prototype.reset = function() {
+    this.entities.length = 0;
+    this.entities = [new bird.Bird(), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()];
 };
 
 exports.CollisionSystem = CollisionSystem;

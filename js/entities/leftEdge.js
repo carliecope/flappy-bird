@@ -19,6 +19,9 @@ var LeftEdge = function() {
 
 LeftEdge.prototype.onCollision = function(entity) {
     //console.log("Left edge collided with entity:", entity);
+    if (entity.isBird === false) {
+        entity.garbage = true;
+    }
 };
 
 exports.LeftEdge = LeftEdge;

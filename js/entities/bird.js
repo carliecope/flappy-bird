@@ -1,7 +1,9 @@
 var physicsComponent = require("../components/physics/physics");
 var graphicsComponent = require("../components/graphics/bird");
 var collisionComponent = require("../components/collision/circle");
-var flappyBird = require("../flappy_bird.js");
+var leftEdge = require('./leftEdge');
+var topEdge = require('./topEdge');
+var bottomEdge = require('./bottomEdge');
 //var settings = require("../settings");
 
 var Bird = function() {
@@ -22,12 +24,7 @@ var Bird = function() {
 };
 
 Bird.prototype.onCollision = function(entity) {
-    console.log("Bird collided with entity:", entity);
-    if (entity.isBird = false) {
-        flappyBird.FlappyBird.entities = [];
-        flappyBird.FlappyBird.
-        flappyBird.FlappyBird.pipe = [];
-    }
+    //console.log("Bird collided with entity:", entity);
 };
 
 exports.Bird = Bird;
