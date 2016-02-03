@@ -5,6 +5,7 @@ var collisionComponent = require("../components/collision/rect");
 
 var Pipe = function(y_coord) {
     this.isBird = false;
+    this.isPipe_Check = false;
 	var physics = new physicsComponent.PhysicsComponent(this);
 	physics.position.x = 0.5;
 	physics.position.y = y_coord;

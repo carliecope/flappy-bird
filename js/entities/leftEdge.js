@@ -4,6 +4,7 @@ var collisionComponent = require("../components/collision/rect");
 
 var LeftEdge = function() {
 	this.isBird = false;
+    this.isPipe_Check = false;
 	var physics = new physicsComponent.PhysicsComponent(this);
 	physics.position.x = -1;
 	physics.position.y = 0.5;

@@ -5,8 +5,9 @@ var collisionComponent = require("../components/collision/rect");
 
 var Pipe_Checkpoint = function() {
     this.isBird = false;
+    this.isPipe_Check = true;
 	var physics = new physicsComponent.PhysicsComponent(this);
-	physics.position.x = 0.5;
+	physics.position.x = 0;
 	physics.position.y = 0;
 	physics.velocity.x = -0.3;
     

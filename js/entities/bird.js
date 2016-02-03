@@ -8,6 +8,7 @@ var bottomEdge = require('./bottomEdge');
 
 var Bird = function() {
     this.isBird = true;
+    this.isPipe_Check = false;
     var physics = new physicsComponent.PhysicsComponent(this);
     physics.position.y = 0.5;
     physics.acceleration.y = -2;

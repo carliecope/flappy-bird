@@ -3,8 +3,9 @@ var leftEdge = require('../entities/leftEdge');
 var topEdge = require('../entities/topEdge');
 var bottomEdge = require('../entities/bottomEdge');
 
-var CollisionSystem = function(entities) {
+var CollisionSystem = function(entities, game) {
     this.entities = entities;
+    this.game = game;
 };
 
 CollisionSystem.prototype.tick = function() {
@@ -28,14 +29,14 @@ CollisionSystem.prototype.tick = function() {
 
             if (entityA.components.collision.onCollision) {
                 entityA.components.collision.onCollision(entityB);
-                if (entityB.isBird || entityA.isBird) {
+                if ((entityB.isBird && !entityA.isPipe_Check) || (entityA.isBird && !entityB.isPipe_Check)) {
                     this.reset();
                 }
             }
 
             if (entityB.components.collision.onCollision) {
                 entityB.components.collision.onCollision(entityA);
-                if (entityB.isBird || entityA.isBird) {
+                if ((entityB.isBird && !entityA.isPipe_Check) || (entityA.isBird && !entityB.isPipe_Check)) {
                     this.reset();
                 }
             }
@@ -45,7 +46,7 @@ CollisionSystem.prototype.tick = function() {
 
 CollisionSystem.prototype.reset = function() {
     this.entities.length = 0;
-    this.entities = [new bird.Bird(), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()];
+    this.game.entities = [new bird.Bird(), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()];
 };
 
 exports.CollisionSystem = CollisionSystem;
