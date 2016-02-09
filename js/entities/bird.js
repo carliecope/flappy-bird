@@ -27,12 +27,15 @@ var Bird = function() {
 };
 
 Bird.prototype.onCollision = function(entity, entities) {
-    if (entity.isPipe_Check) {
+    /*if (entity.isPipe_Check) {
         this.pipeNum++;
+        document.getElementById('pipeCount').innerText = this.pipeNum;
         console.log("pipeNum is:" , this.pipeNum);
-    } else {
-        entities.length = 0;
-        entities.push(new Bird(), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()); 
+    } else { */
+    
+    if (!entity.isPipe_Check) {
+            entities.length = 0;
+            entities.push(new Bird(), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()); 
     }
 };
 

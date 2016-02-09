@@ -33,7 +33,6 @@ FlappyBird.prototype.pause = function() {
         this.garbage.pause();
     } else {
         this.physics.run();
-        //this.pipe.run();
         this.garbage.run();
     }
     this.paused = !this.paused;
