@@ -27,26 +27,26 @@ CollisionSystem.prototype.tick = function() {
                 continue;
             }
 
-            if (entityA.components.collision.onCollision) {
-                entityA.components.collision.onCollision(entityB);
-                if ((entityB.isBird && !entityA.isPipe_Check) || (entityA.isBird && !entityB.isPipe_Check)) {
+            /*if ((entityB.isBird && !entityA.isPipe_Check) || (entityA.isBird && !entityB.isPipe_Check)) {
                     this.reset();
-                }
+            } */
+
+            if (entityA.components.collision.onCollision) {
+                entityA.components.collision.onCollision(entityB, this.entities);
+
             }
 
             if (entityB.components.collision.onCollision) {
-                entityB.components.collision.onCollision(entityA);
-                if ((entityB.isBird && !entityA.isPipe_Check) || (entityA.isBird && !entityB.isPipe_Check)) {
-                    this.reset();
-                }
+                entityB.components.collision.onCollision(entityA, this.entities);
             }
         }
     }
 };
 
+/*
 CollisionSystem.prototype.reset = function() {
     this.entities.length = 0;
     this.game.entities = [new bird.Bird(), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()];
-};
+}; */
 
 exports.CollisionSystem = CollisionSystem;

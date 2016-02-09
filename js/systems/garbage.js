@@ -1,8 +1,14 @@
 var GarbageSystem = function(entities) {
 	this.entities = entities;
+	this.interval = null;
 };
 GarbageSystem.prototype.run = function() {
-	window.setInterval(this.tick.bind(this), 2000);
+	this.interval = window.setInterval(this.tick.bind(this), 2000);
+};
+
+GarbageSystem.prototype.pause = function() {
+	clearInterval(this.interval);
+	this.interval = null;
 };
 
 GarbageSystem.prototype.tick = function() {

@@ -7,8 +7,8 @@ var Pipe_Checkpoint = function() {
     this.isBird = false;
     this.isPipe_Check = true;
 	var physics = new physicsComponent.PhysicsComponent(this);
-	physics.position.x = 0;
-	physics.position.y = 0;
+	physics.position.x = 0.6;
+	physics.position.y = 0.5;
 	physics.velocity.x = -0.3;
     
     var collision = new collisionComponent.RectCollisionComponent(this, {x: 0.1, y: 1});

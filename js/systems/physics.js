@@ -2,28 +2,40 @@ var collisionSystem = require("./collision");
 
 var PhysicsSystem = function(entities, game) {
     this.entities = entities;
-    this.game = game;
+    this.pipe = game.pipe;
     this.collisionSystem = new collisionSystem.CollisionSystem(entities, game);
-    this.pause = false; 
+    this.interval = null;
+    this.tickCount = 0;
 };
 
 PhysicsSystem.prototype.run = function() {
     // Run the update loop
-    window.setInterval(this.tick.bind(this), 1000 /60);
+    this.interval = window.setInterval(this.tick.bind(this), 1000 /60);
 };
 
+PhysicsSystem.prototype.pause = function() {
+   clearInterval(this.interval);
+   this.interval = null;
+}; 
 
 PhysicsSystem.prototype.tick = function() {
-    if (this.pause === false) {
-        for (var i=0; i<this.entities.length; i++) {
-            var entity = this.entities[i];
-            if (!'physics' in entity.components) {
-                continue;
-            }
+    
+    this.tickCount++;
 
-            entity.components.physics.update(1/60);
+    for (var i=0; i<this.entities.length; i++) {
+        var entity = this.entities[i];
+        if (!'physics' in entity.components) {
+            continue;
         }
-        this.collisionSystem.tick();
+
+        entity.components.physics.update(1/60);
+    }
+    this.collisionSystem.tick();
+    
+    if (this.tickCount == 120) {
+        console.log('tickCount is 120');
+        this.pipe.tick();
+        this.tickCount = 0;
     }
 };
 

@@ -7,8 +7,10 @@ var bottomEdge = require('./bottomEdge');
 //var settings = require("../settings");
 
 var Bird = function() {
+    console.log("the bird is here");
     this.isBird = true;
     this.isPipe_Check = false;
+    this.pipeNum = 0;
     var physics = new physicsComponent.PhysicsComponent(this);
     physics.position.y = 0.5;
     physics.acceleration.y = -2;
@@ -24,8 +26,14 @@ var Bird = function() {
     };
 };
 
-Bird.prototype.onCollision = function(entity) {
-    //console.log("Bird collided with entity:", entity);
+Bird.prototype.onCollision = function(entity, entities) {
+    if (entity.isPipe_Check) {
+        this.pipeNum++;
+        console.log("pipeNum is:" , this.pipeNum);
+    } else {
+        entities.length = 0;
+        entities.push(new Bird(), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()); 
+    }
 };
 
 exports.Bird = Bird;
