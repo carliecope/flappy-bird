@@ -27,10 +27,6 @@ CollisionSystem.prototype.tick = function() {
                 continue;
             }
 
-            /*if ((entityB.isBird && !entityA.isPipe_Check) || (entityA.isBird && !entityB.isPipe_Check)) {
-                    this.reset();
-            } */
-
             if (entityA.components.collision.onCollision) {
                 entityA.components.collision.onCollision(entityB, this.entities);
 
@@ -42,11 +38,5 @@ CollisionSystem.prototype.tick = function() {
         }
     }
 };
-
-/*
-CollisionSystem.prototype.reset = function() {
-    this.entities.length = 0;
-    this.game.entities = [new bird.Bird(), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()];
-}; */
 
 exports.CollisionSystem = CollisionSystem;

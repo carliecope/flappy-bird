@@ -1,7 +1,7 @@
 var graphicsComponent = require("../components/graphics/pipe");
 var physicsComponent = require("../components/physics/physics");
 var collisionComponent = require("../components/collision/rect");
-//var settings = require("../settings");
+var settings = require('../../settings');
 
 var Pipe = function(y_coord) {
     this.isBird = false;
@@ -12,7 +12,7 @@ var Pipe = function(y_coord) {
 	physics.velocity.x = -0.3; 
     
     var graphics = new graphicsComponent.PipeGraphicsComponent(this);
-    var collision = new collisionComponent.RectCollisionComponent(this, {x: 0.1, y: 0.2});
+    var collision = new collisionComponent.RectCollisionComponent(this, {x: settings.pipeWidth, y: 0.2});
     collision.onCollision = this.onCollision.bind(this);
     
     this.components = {

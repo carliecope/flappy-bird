@@ -37,6 +37,7 @@ PhysicsSystem.prototype.tick = function() {
         this.pipe.tick();
         this.tickCount = 0;
     }
+    this.pipe.pipesPassed();
 };
 
 exports.PhysicsSystem = PhysicsSystem;

@@ -15,9 +15,7 @@ GarbageSystem.prototype.tick = function() {
 
 	for (i = 0; i<this.entities.length; i++) {
 		
-		if (this.entities[i].garbage) {
-			console.log('entity removed');
-			
+		if (this.entities[i].garbage) {			
 			this.entities.remove(i);
 			i--;
 		}
