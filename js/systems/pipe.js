@@ -5,18 +5,12 @@ var settings = require('../../settings');
 var PipeSystem = function(entities) {
     this.entities = entities;
     this.score = 0;
-
 };
 
- /* PipeSystem.prototype.run = function() {
-    // Run the update loop
-    this.interval = window.setInterval(this.tick.bind(this), 2000);
-}; */
-
 PipeSystem.prototype.tick = function() {
-	
-	var offset = settings.math.randomRange(0.25, 0.65),
-	this.entities.push(new pipe.Pipe(0), new pipe.Pipe(1), new pipe_checkpoint.Pipe_Checkpoint());
+
+	var offset = Math.randomRange(-0.25, 0.25);
+	this.entities.push(new pipe.Pipe(0+offset), new pipe.Pipe(1+offset), new pipe_checkpoint.Pipe_Checkpoint());
 };
 
 PipeSystem.prototype.pipesPassed = function() {
@@ -30,5 +24,9 @@ PipeSystem.prototype.pipesPassed = function() {
 		}
 	}
 }; 
+
+Math.randomRange = function(min,max) {
+	  return min + (Math.random() * (max-min));
+};
 
 exports.PipeSystem = PipeSystem;

@@ -18,6 +18,9 @@ var FlappyBird = function() {
     this.input = new inputSystem.InputSystem(this.entities, this);
     this.garbage = new garbageSystem.GarbageSystem(this.entities);
     this.paused = false;
+    document.getElementById('lastGameScore').innerText = localStorage.getItem('lastGameScore');
+
+    console.log(localStorage.getItem('lastGameScore'));
 };
 
 FlappyBird.prototype.run = function() {

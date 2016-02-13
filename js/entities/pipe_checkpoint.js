@@ -8,7 +8,7 @@ var Pipe_Checkpoint = function() {
     this.isPipe_Check = true;
     this.hasScored = false;
 	var physics = new physicsComponent.PhysicsComponent(this);
-	physics.position.x = 0.6;
+	physics.position.x = 0.5;
 	physics.position.y = 0.5;
 	physics.velocity.x = -0.3;
     

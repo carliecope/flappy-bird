@@ -12,7 +12,7 @@ var Pipe = function(y_coord) {
 	physics.velocity.x = -0.3; 
     
     var graphics = new graphicsComponent.PipeGraphicsComponent(this);
-    var collision = new collisionComponent.RectCollisionComponent(this, {x: settings.pipeWidth, y: 0.2});
+    var collision = new collisionComponent.RectCollisionComponent(this, {x: settings.pipeWidth, y: settings.pipeHeight});
     collision.onCollision = this.onCollision.bind(this);
     
     this.components = {

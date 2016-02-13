@@ -35,6 +35,7 @@ Bird.prototype.onCollision = function(entity, entities) {
             this.game.pause();
             document.getElementById('lastGameScore').innerText = this.game.pipe.score;
             document.getElementById('pipeCount').innerText = 0;
+            localStorage.setItem('lastGameScore', this.game.pipe.score);
             this.game.pipe.score = 0;
     }
 };
