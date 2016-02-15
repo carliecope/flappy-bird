@@ -3,6 +3,7 @@ var collisionSystem = require("./collision");
 var PhysicsSystem = function(entities, game) {
     this.entities = entities;
     this.pipe = game.pipe;
+    //this.bird_graphic = game.components.graphics.bird;
     this.collisionSystem = new collisionSystem.CollisionSystem(entities, game);
     this.interval = null;
     this.tickCount = 0;
@@ -38,6 +39,11 @@ PhysicsSystem.prototype.tick = function() {
         this.tickCount = 0;
     }
     this.pipe.pipesPassed();
+
+    /*if (this.tickCount == 240) {
+        console.log('tickCount is 240');
+        this.bird_graphic.flap();
+    }*/
 };
 
 exports.PhysicsSystem = PhysicsSystem;

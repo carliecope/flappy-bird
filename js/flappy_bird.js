@@ -12,7 +12,7 @@ var bottomEdge = require('./entities/bottomEdge');
 
 var FlappyBird = function() {
     this.entities = [new bird.Bird(this), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()];
-    this.graphics = new graphicsSystem.GraphicsSystem(this.entities);
+    this.graphics = new graphicsSystem.GraphicsSystem(this.entities, this);
     this.pipe = new pipeSystem.PipeSystem(this.entities);
     this.physics = new physicsSystem.PhysicsSystem(this.entities, this);
     this.input = new inputSystem.InputSystem(this.entities, this);

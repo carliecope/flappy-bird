@@ -3,9 +3,10 @@ var physicsComponent = require("../components/physics/physics");
 var collisionComponent = require("../components/collision/rect");
 var settings = require('../../settings');
 
-var Pipe = function(y_coord) {
+var Pipe = function(y_coord, flip) {
     this.isBird = false;
     this.isPipe_Check = false;
+    this.flip = flip;
 	var physics = new physicsComponent.PhysicsComponent(this);
 	physics.position.x = 0.5;
 	physics.position.y = y_coord;

@@ -17,18 +17,18 @@ gulp.task('jshint', function() {
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
- /*
+ 
 // Compile Sass task
 gulp.task('sass', function() {
-  return gulp.src('site/scss/*.scss')
+  return gulp.src('scss/*.scss')
     .pipe(sass())
-    .pipe(gulp.dest('site/css'));
-}); */
+    .pipe(gulp.dest('css'));
+}); 
 
 // Watch task
 gulp.task('watch', function() {
   gulp.watch('js/**/*.js', ['jshint']);
-  //gulp.watch('site/scss/*.scss', ['sass']);
+  gulp.watch('scss/*.scss', ['sass']);
 });
 
 // Minify index
@@ -54,22 +54,16 @@ gulp.task('styles', function() {
     .pipe(concat('styles.css'))
     .pipe(gulp.dest('build/css'));
 });
-/*
+
 // Image optimization task
 gulp.task('images', function() {
-  return gulp.src('site/img/*')
+  return gulp.src('img/*')
     .pipe(imagemin())
     .pipe(gulp.dest('build/img'));
-}); */
-
-gulp.task('sass', function() {
-  return gulp.src('site/scss/*.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('site/css'));
-});
+}); 
 
 // Default task
-gulp.task('default', ['jshint', 'watch']);
+gulp.task('default', ['jshint', 'watch', 'sass']);
 
 // Build task
-gulp.task('build', ['jshint', 'html', 'scripts', 'styles',]);
+gulp.task('build', ['jshint', 'sass', 'html', 'scripts', 'styles', 'images']);

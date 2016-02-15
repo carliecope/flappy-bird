@@ -1,4 +1,4 @@
-var GraphicsSystem = function(entities) {
+var GraphicsSystem = function(entities, game) {
     this.entities = entities;
     // Canvas is where we draw
     this.canvas = document.getElementById('main-canvas');

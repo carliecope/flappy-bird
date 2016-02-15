@@ -10,7 +10,7 @@ var PipeSystem = function(entities) {
 PipeSystem.prototype.tick = function() {
 
 	var offset = Math.randomRange(-0.25, 0.25);
-	this.entities.push(new pipe.Pipe(0+offset), new pipe.Pipe(1+offset), new pipe_checkpoint.Pipe_Checkpoint());
+	this.entities.push(new pipe.Pipe(0+offset, true), new pipe.Pipe(1+offset, false), new pipe_checkpoint.Pipe_Checkpoint());
 };
 
 PipeSystem.prototype.pipesPassed = function() {
