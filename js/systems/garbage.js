@@ -11,6 +11,11 @@ GarbageSystem.prototype.pause = function() {
 	this.interval = null;
 };
 
+GarbageSystem.prototype.gameOver = function() {
+	clearInterval(this.interval);
+	this.interval = null;
+};
+
 GarbageSystem.prototype.tick = function() {
 
 	for (i = 0; i<this.entities.length; i++) {

@@ -32,10 +32,18 @@ Bird.prototype.onCollision = function(entity, entities) {
     if (!entity.isPipe_Check) {
             entities.length = 0;
             entities.push(new Bird(this.game), new leftEdge.LeftEdge(), new topEdge.TopEdge(), new bottomEdge.BottomEdge()); 
-            this.game.pause();
+            
+            this.game.gameOver();
             document.getElementById('lastGameScore').innerText = this.game.pipe.score;
             document.getElementById('pipeCount').innerText = 0;
             localStorage.setItem('lastGameScore', this.game.pipe.score);
+
+            var highScore = this.game.pipe.highScore;
+            if (this.game.pipe.score > highScore) {
+                highScore = this.game.pipe.score;
+                document.getElementById('highScore').innerText = highScore;
+                localStorage.setItem('highScore', highScore);
+            }
             this.game.pipe.score = 0;
     }
 };

@@ -19,6 +19,10 @@ InputSystem.prototype.onClick = function() {
       this.game.pause();  
     }
     
+    if(this.game.gameEnded) {
+      this.game.gameOver();  
+    }
+    
     for (i=0; i<this.entities.length; i++) {
         if (this.entities[i].isBird) {
             var bird = this.entities[i];

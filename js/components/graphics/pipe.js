@@ -12,7 +12,7 @@ PipeGraphicsComponent.prototype.draw = function(context) {
     context.save();
 
     //fillRect(x coord starting point, y coord starting point, width, height)
-    context.fillRect(position.x-settings.pipeWidth/2, position.y-settings.pipeHeight/2, settings.pipeWidth, settings.pipeHeight);
+    //context.fillRect(position.x-settings.pipeWidth/2, position.y-settings.pipeHeight/2, settings.pipeWidth, settings.pipeHeight);
 
     
     

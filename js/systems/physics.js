@@ -19,6 +19,11 @@ PhysicsSystem.prototype.pause = function() {
    this.interval = null;
 }; 
 
+PhysicsSystem.prototype.gameOver = function() {
+   clearInterval(this.interval);
+   this.interval = null;
+}; 
+
 PhysicsSystem.prototype.tick = function() {
     
     this.tickCount++;

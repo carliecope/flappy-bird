@@ -31,11 +31,11 @@ BirdGraphicsComponent.prototype.draw = function(context) {
     context.rotate(Math.PI);
     context.scale(-1, 1);
 
-    context.beginPath();
+    //context.beginPath();
     //arc.(x coord start, y coord start, radius, start angle, end angle)
-    context.arc(0, 0, settings.birdRadius, 0, 2 * Math.PI);
-    context.fill();
-    context.closePath();
+    //context.arc(0, 0, settings.birdRadius, 0, 2 * Math.PI);
+    //context.fill();
+    //context.closePath();
 
     var image = this.image;
     //drawImage(x coord of top-left corner of img, y coord [top-left], width, height)

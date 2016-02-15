@@ -5,6 +5,7 @@ var settings = require('../../settings');
 var PipeSystem = function(entities) {
     this.entities = entities;
     this.score = 0;
+    this.highScore = 0;
 };
 
 PipeSystem.prototype.tick = function() {
