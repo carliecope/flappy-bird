@@ -5,7 +5,11 @@ var settings = require('../../settings');
 var PipeSystem = function(entities) {
     this.entities = entities;
     this.score = 0;
-    this.highScore = 0;
+    
+    this.highScore = localStorage.getItem('highScore');
+    if (this.highScore === null || this.highScore ===undefined) {
+    	this.highScore = 0;
+    }
 };
 
 PipeSystem.prototype.tick = function() {

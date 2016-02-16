@@ -38,19 +38,20 @@ html, body {
   text-align: center;
   font-size: 3em; }
 
-#startFinish {
+#scoreboard {
   text-align: center;
-  margin: 1em auto 0 auto;
+  margin: 0 auto;
   width: 100%;
   background-color: transparent;
   padding: 0.2em; }
   @media (min-width: 800px) {
-    #startFinish {
+    #scoreboard {
+      margin: 1em auto 0 auto;
       width: 50%;
       padding: 2em; } }
 
 @media (min-width: 800px) {
-  #gameResponse {
+  #startEndHeading, #pauseUnpauseHeading {
     font-size: 3em; } }
 
 .gameScores {
@@ -60,7 +61,7 @@ html, body {
   .gameScores h2 {
     margin: 0.5em 0; }
 
-#startPauseBtn {
+#startBtn, #pauseBtn {
   background-color: #FFFF00;
   border: #000000 2px solid;
   text-shadow: none;
@@ -73,12 +74,12 @@ html, body {
   line-height: 1.33;
   margin: 0; }
   @media (min-width: 800px) {
-    #startPauseBtn {
+    #startBtn, #pauseBtn {
       margin: 1em 0 0 0; } }
 
-#startPauseBtn:focus {
+#startBtn:focus, #pauseBtn:focus {
   outline: 0; }
 
-#startPauseBtn:hover {
+#startBtn:hover, #pauseBtn:hover {
   background-color: #FCFC36;
   cursor: pointer; }

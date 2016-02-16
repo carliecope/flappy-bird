@@ -32,39 +32,69 @@ FlappyBird.prototype.run = function() {
 };
 
 FlappyBird.prototype.pause = function() {
+    console.log("pause called");
     if (!this.paused) {
         this.physics.pause();
         this.garbage.pause();
-        document.getElementById('gameResponse').innerText = "Paused";
-        document.getElementById('startPauseBtn').innerText = "Resume";
-        document.getElementById('startFinish').removeAttribute("style");
+        document.getElementById('scoreboard').removeAttribute('style');
+
+        document.getElementById('startBtn').setAttribute("style", "display:none;");
+        document.getElementById('pauseBtn').removeAttribute("style");
+
+        document.getElementById('startEndHeading').setAttribute("style", "display:none;");
+        document.getElementById('pauseUnpauseHeading').removeAttribute("style");
 
     } else {
         this.physics.run();
         this.garbage.run();
-        document.getElementById('startFinish').setAttribute("style", "display:none;");
-        document.getElementById('gameResponse').innerText = "Flappy Bird";
-        document.getElementById('startPauseBtn').innerText = "Start Flying!";
+        document.getElementById('scoreboard').setAttribute("style", "display:none;");
     }
     this.paused = !this.paused;
 };
 
 FlappyBird.prototype.gameOver = function() {
+    console.log("gameOver called");
+
     if (!this.gameEnded) {
         this.physics.gameOver();
         this.garbage.gameOver();
-        document.getElementById('gameResponse').innerText = "Game Over";
-        document.getElementById('startPauseBtn').innerText = "Play Again!";
-        document.getElementById('startFinish').removeAttribute("style");
+
+        document.getElementById('startBtn').innerHTML = '3';
+
+        this.interval = window.setInterval(countdownTick.bind(this), 1000);
+
+        document.getElementById('scoreboard').removeAttribute('style');
+
+        document.getElementById('startBtn').removeAttribute("style");
+        document.getElementById('pauseBtn').setAttribute("style", "display:none;");
+
+        document.getElementById('startEndHeading').removeAttribute("style");
+        document.getElementById('pauseUnpauseHeading').setAttribute("style", "display:none;");
+
+        this.gameEnded = !this.gameEnded;
 
     } else {
-        this.physics.run();
-        this.garbage.run();
-        document.getElementById('startFinish').setAttribute("style", "display:none;");
-        document.getElementById('gameResponse').innerText = "Flappy Bird";
-        document.getElementById('startPauseBtn').innerText = "Start Flying!";
+        if (document.getElementById("startBtn").innerText == "Start Flying!") {
+            this.physics.run();
+            this.garbage.run();
+            document.getElementById('scoreboard').setAttribute("style", "display:none;");
+            this.gameEnded = !this.gameEnded;
+        }
+    }  
+};
+
+var countdownTick = function() {
+    var num = document.getElementById('startBtn').innerHTML;
+    
+    if (num >= 1) {
+        num--;
     }
-    this.gameEnded = !this.gameEnded;
+    document.getElementById('startBtn').innerHTML = num;
+
+    if (num === 0) {
+        clearInterval(this.interval);
+        document.getElementById('startBtn').innerHTML = "Start Flying!";
+    }
 };
 
 exports.FlappyBird = FlappyBird;
