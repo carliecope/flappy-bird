@@ -1,6 +1,5 @@
 var physicsComponent = require("../components/physics/physics");
 var collisionComponent = require("../components/collision/rect");
-//var settings = require("../settings");
 
 var LeftEdge = function() {
 	this.isBird = false;
@@ -19,7 +18,6 @@ var LeftEdge = function() {
 };
 
 LeftEdge.prototype.onCollision = function(entity) {
-    //console.log("Left edge collided with entity:", entity);
     if (entity.isBird === false) {
         entity.garbage = true;
     }

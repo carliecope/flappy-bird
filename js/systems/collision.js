@@ -9,7 +9,6 @@ var CollisionSystem = function(entities, game) {
 };
 
 CollisionSystem.prototype.tick = function() {
-    //console.log('collisons system ticking');
 
     for (var i=0; i<this.entities.length; i++) {
         var entityA = this.entities[i];

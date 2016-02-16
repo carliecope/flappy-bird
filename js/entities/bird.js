@@ -14,7 +14,6 @@ var Bird = function(game) {
     var physics = new physicsComponent.PhysicsComponent(this);
     physics.position.y = 0.5;
     physics.acceleration.y = -2;
-    console.log("physics x position", physics.position.x);
 
     var graphics = new graphicsComponent.BirdGraphicsComponent(this);
     var collision = new collisionComponent.CircleCollisionComponent(this, settings.birdRadius);

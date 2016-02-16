@@ -20,8 +20,6 @@ var FlappyBird = function() {
     this.paused = false;
     this.gameEnded = false;
     document.getElementById('lastGameScore').innerText = localStorage.getItem('lastGameScore');
-
-    console.log(localStorage.getItem('lastGameScore'));
 };
 
 FlappyBird.prototype.run = function() {
@@ -32,7 +30,6 @@ FlappyBird.prototype.run = function() {
 };
 
 FlappyBird.prototype.pause = function() {
-    console.log("pause called");
     if (!this.paused) {
         this.physics.pause();
         this.garbage.pause();
@@ -53,12 +50,11 @@ FlappyBird.prototype.pause = function() {
 };
 
 FlappyBird.prototype.gameOver = function() {
-    console.log("gameOver called");
-
     if (!this.gameEnded) {
         this.physics.gameOver();
         this.garbage.gameOver();
 
+        document.getElementById('startEndHeading').innerText = "Game Over";
         document.getElementById('startBtn').innerHTML = '3';
 
         this.interval = window.setInterval(countdownTick.bind(this), 1000);

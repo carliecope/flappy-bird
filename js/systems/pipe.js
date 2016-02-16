@@ -7,7 +7,8 @@ var PipeSystem = function(entities) {
     this.score = 0;
     
     this.highScore = localStorage.getItem('highScore');
-    if (this.highScore === null || this.highScore ===undefined) {
+    document.getElementById("highScore").innerText = this.highScore;
+    if (this.highScore === null || this.highScore === undefined) {
     	this.highScore = 0;
     }
 };
@@ -24,7 +25,6 @@ PipeSystem.prototype.pipesPassed = function() {
 		if (this.entities[i].isPipe_Check && !this.entities[i].hasScored && this.entities[i].components.physics.position.x < -settings.birdRadius) {
 			this.score++;
 			this.entities[i].hasScored = true;
-			console.log(this.score);
 			document.getElementById('pipeCount').innerText = this.score;
 		}
 	}

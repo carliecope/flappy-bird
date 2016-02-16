@@ -83,3 +83,9 @@ html, body {
 #startBtn:hover, #pauseBtn:hover {
   background-color: #FCFC36;
   cursor: pointer; }
+
+#keycodes {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%; }

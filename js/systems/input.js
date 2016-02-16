@@ -2,8 +2,6 @@ var InputSystem = function(entities, game) {
     this.entities = entities;
     this.game = game;
 
-    // Canvas is where we get input from
-    //this.canvas = document.getElementById('main-canvas');
     this.startBtn = document.getElementById('startBtn');
     this.pauseBtn = document.getElementById('pauseBtn');
     this.overlay = document.getElementById('overlay');
@@ -23,7 +21,6 @@ InputSystem.prototype.lift = function() {
 };
 
 InputSystem.prototype.onClickOverlay = function() {
-    console.log("onClickOverlay called");
     
     if(!this.game.paused && !this.game.gameEnded) {
         for (i=0; i<this.entities.length; i++) {
@@ -37,13 +34,11 @@ InputSystem.prototype.onClickOverlay = function() {
 };
 
 InputSystem.prototype.onClickPause = function() {
-    console.log("onClickPause called");
     if(this.game.paused) {
       this.game.pause();  
     }
 };
 InputSystem.prototype.onClickStart = function() {
-    console.log("onClickStart called");
     if(this.game.gameEnded) {
       this.game.gameOver();  
     }
@@ -51,7 +46,6 @@ InputSystem.prototype.onClickStart = function() {
 
 InputSystem.prototype.checkKeyP = function(e) {
     e = e || window.event;
-    //console.log('pause event');
 
     if (e.keyCode == 80) {
         this.game.pause();
@@ -62,7 +56,7 @@ InputSystem.prototype.checkKeySpaceUp = function(e) {
     e = e || window.event;
 
     if(!this.game.paused && !this.game.gameEnded) {
-        if (e.keyCode == 32 || e.keyCode == 33) {
+        if (e.keyCode == 32) {
             for (i=0; i<this.entities.length; i++) {
                 if (this.entities[i].isBird) {
                     var bird = this.entities[i];
