@@ -40,7 +40,6 @@ PhysicsSystem.prototype.tick = function() {
     this.collisionSystem.tick();
     
     if (this.tickCount == 120) {
-        console.log('tickCount is 120');
         this.pipe.tick();
         this.tickCount = 0;
     }

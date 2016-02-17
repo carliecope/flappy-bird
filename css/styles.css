@@ -15,11 +15,7 @@ html, body {
 #main-canvas {
   width: 100%;
   height: 100%;
-  background-color: #60BAC3; }
-  @media (min-width: 600px) {
-    #main-canvas {
-      background: #60BAC3 url("../img/background.svg") repeat-x left top;
-      background-size: contain; } }
+  background: #7AD68A url("../img/background.svg") repeat-x left top; }
 
 #overlay {
   position: absolute;
@@ -31,7 +27,11 @@ html, body {
 
 #pipeCount {
   text-align: center;
-  font-size: 3em; }
+  font-size: 3em;
+  margin-bottom: 0; }
+  @media (max-width: 319px) {
+    #pipeCount {
+      margin-bottom: 1em; } }
 
 #scoreboard {
   text-align: center;

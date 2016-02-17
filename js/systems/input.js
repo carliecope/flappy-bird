@@ -27,7 +27,7 @@ InputSystem.prototype.onClickOverlay = function() {
             if (this.entities[i].isBird) {
                 var bird = this.entities[i];
                 bird.components.physics.velocity.y = 0.7;
-                console.log("bird y position:", bird.components.physics.position.y);
+                //console.log("bird y position:", bird.components.physics.position.y);
             }
         }  
     }
@@ -61,7 +61,7 @@ InputSystem.prototype.checkKeySpaceUp = function(e) {
                 if (this.entities[i].isBird) {
                     var bird = this.entities[i];
                     bird.components.physics.velocity.y = 0.7;
-                    console.log("bird y position:", bird.components.physics.position.y);
+                    //console.log("bird y position:", bird.components.physics.position.y);
                 }
             }
         }
